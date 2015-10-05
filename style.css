@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #E3C8A0;
+}
+
+.container {
+  margin: 20px auto;
+  border: 1px solid #aaa;
+  overflow: auto;
+}
+
+.ant {
+  background-color: green;
+}
+
+.square {
+  float: left;
+  border: 1px solid #aaa;
+  width: 10px;
+  height: 10px;
+}
+
+.filled {
+  background-color: #666;
+}
