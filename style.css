@@ -6,21 +6,52 @@
 
 body {
   background-color: #E3C8A0;
+  font-family: sans-serif;
 }
 
-.menu {
+.header {
   position: fixed;
   top: 0px;
   width: 100%;
-  height: 60px;
-  background: rgba(5,5,5,0.5);
+  background: rgba(5,5,5,0.8);
   text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-button {
-  position: fixed;
-  top: 20px;
-  left: 40px;
+.menu {
+  width: 800px;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.menu ul {
+  display: inline;
+  list-style: none;
+}
+
+.menu li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.menu .title {
+  font-size: 28px;
+  color: #aaa;
+}
+
+.button {
+  width: 70px;
+  height: 40px;
+  background-color: #B58A4B;
+  font-size: 20px;
+  padding-top: 10px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: #9E7A44;
 }
 
 .antField {
@@ -36,18 +67,10 @@ button {
   height: 8px;
 }
 
-.antField .ant {
-  background-color: green;
+.antField .ant, .antField .filled.ant, .antField .ant.filled {
+  background-color: red;
 }
 
 .antField .filled {
   background-color: #666;
-}
-
-/* This is needed when the square is black and has the ant */
-.antField .filled.ant {
-  background-color: green;
-}
-.antField .ant.filled {
-  background-color: green;
 }
