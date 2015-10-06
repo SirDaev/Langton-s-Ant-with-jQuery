@@ -1,18 +1,28 @@
 var gridDim = 100;
-var antX = antY = Math.round(gridDim/2);
+var gridHalf =  Math.round(gridDim/2)
+var antPos = gridDim * gridHalf - gridDim + gridHalf;
 var numberOfSquares = gridDim * gridDim;
-console.log(antX,antY);
+var antDir = 'r';
 
-var antPosition = function(antXpos, antYpos) {
-  var fillSquare = (gridDim * antYpos - 1) + antXpos;
-  return fillSquare;
-  console.log(fillSquare);
+//Toggle square fill
+var toggleSquare = function(square) {
+  $('.antField .square:nth-child(' + (square) + ')').toggleClass('filled');
+}
+
+//Toggle ant fill
+var toggleAnt = function(square) {
+  $('.antField .square:nth-child(' + (square) + ')').toggleClass('ant');
+}
+
+//Check to see if a square is filled
+var isFilled = function(square) {
+  return $('.antField .square:nth-child(' + (square) + ')').hasClass('filled');
 }
 
 $(document).ready(function() {
   
   //Create the container
-  $('.antField').css({ width : gridDim * 10 + 2 + "px" });
+  $('.antField').css({ width : gridDim * 8 + 2 + "px" });
   
   //Fill the container with squares
   for (i=0;i<numberOfSquares;i++) {
@@ -20,8 +30,77 @@ $(document).ready(function() {
   }
   
   //Fill the initial squares
-  $('.square:nth-child(' + (antPosition(antX, antY) + 1) + ')').addClass('filled');$('.square:nth-child(' + (antPosition(antX, antY) - 1) + ')').addClass('filled');$('.square:nth-child(' + (antPosition(antX, antY) + gridDim) + ')').addClass('filled');$('.square:nth-child(' + (antPosition(antX, antY) - gridDim) + ')').addClass('filled');
+  toggleSquare(antPos); //Initial ant square
+  toggleSquare(antPos + 1); //Square to the right
+  toggleSquare(antPos - 1); //Square to the left
+  toggleSquare(antPos + gridDim); //Square below
+  toggleSquare(antPos - gridDim); //Square above
   
   //Place the ant
-  $('.square:nth-child(' + antPosition(antX, antY) + ')').addClass('ant');
+  toggleAnt(antPos);
+  
+  $('button').click(function() {
+    
+    console.log('antPos before: ' + antPos);
+    
+    toggleAnt(antPos);
+    
+    if (antDir === 'r') {
+      
+      if(isFilled(antPos + 1)) {
+        antDir = 'u';
+      } else {
+        antDir = 'd';
+      }
+      
+      toggleAnt(antPos + 1);
+      toggleSquare(antPos + 1);
+      
+      antPos += 1;
+      
+    } else if(antDir === 'l') {
+      
+      if(isFilled(antPos - 1)) {
+        antDir = 'd';
+      } else {
+        antDir = 'u';
+      }
+      
+      toggleAnt(antPos - 1);
+      toggleSquare(antPos - 1);
+      
+      antPos -= 1;
+      
+    } else if(antDir === 'u') {
+      
+      if(isFilled(antPos - gridDim)) {
+        antDir = 'l';
+      } else {
+        antDir = 'r';
+      }
+      
+      toggleAnt(antPos - gridDim);
+      toggleSquare(antPos - gridDim);
+      
+      antPos -= gridDim;
+      
+    } else {
+      
+      if(isFilled(antPos + gridDim)) {
+        antDir = 'r';
+      } else {
+        antDir = 'l';
+      }
+      
+      toggleAnt(antPos + gridDim);
+      toggleSquare(antPos + gridDim);
+      
+      antPos += gridDim;
+      
+    }
+    
+    console.log('antPos after: ' + antPos);
+    
+  });
+  
 });

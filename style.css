@@ -8,23 +8,46 @@ body {
   background-color: #E3C8A0;
 }
 
-.antField {
-  margin: 20px auto;
-  border: 1px solid #aaa;
-  overflow: auto;
+.menu {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 60px;
+  background: rgba(5,5,5,0.5);
+  text-align: center;
 }
 
-.ant {
-  background-color: green;
+button {
+  position: fixed;
+  top: 20px;
+  left: 40px;
+}
+
+.antField {
+  margin: 100px auto;
+  border: 1px solid #aaa;
+  overflow: auto;
 }
 
 .square {
   float: left;
   border: 1px solid #aaa;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 
-.filled {
+.antField .ant {
+  background-color: green;
+}
+
+.antField .filled {
   background-color: #666;
+}
+
+/* This is needed when the square is black and has the ant */
+.antField .filled.ant {
+  background-color: green;
+}
+.antField .ant.filled {
+  background-color: green;
 }
