@@ -40,6 +40,21 @@ body {
   color: #aaa;
 }
 
+.info {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.info a, .info a:visited {
+  text-decoration: none;
+  color: brown;
+  
+}
+
 .button {
   width: 70px;
   height: 40px;

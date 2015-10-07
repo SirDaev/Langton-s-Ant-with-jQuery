@@ -25,9 +25,11 @@ var isFilled = function(square) {
 var move = function() {
 
   toggleAnt(antPos);
-
+  
+  //If the ant is traveling right...
   if (antDir === 'r') {
-
+    
+    //...and if the next square is filled
     if(isFilled(antPos + 1)) {
       antDir = 'u';
     } else {
@@ -38,9 +40,11 @@ var move = function() {
     toggleSquare(antPos + 1);
 
     antPos += 1;
-
+  
+  //If the ant is traveling left...
   } else if(antDir === 'l') {
 
+    //...and if the next square is filled
     if(isFilled(antPos - 1)) {
       antDir = 'd';
     } else {
@@ -52,8 +56,10 @@ var move = function() {
 
     antPos -= 1;
 
+  //If the ant is travelling up...
   } else if(antDir === 'u') {
 
+    //...and the next square is filled
     if(isFilled(antPos - gridDim)) {
       antDir = 'l';
     } else {
@@ -65,8 +71,10 @@ var move = function() {
 
     antPos -= gridDim;
 
+  //If the ant is travelling down...
   } else {
 
+    //...and if the next square is filled
     if(isFilled(antPos + gridDim)) {
       antDir = 'r';
     } else {
@@ -109,7 +117,7 @@ $(document).ready(function() {
       isRunning = true;
       
       for(i=1;i<4000;i++) {
-        setTimeout(move, 30*i);
+        setTimeout(move, 80*i);
       };
       
     }
