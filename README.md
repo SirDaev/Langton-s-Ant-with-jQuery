@@ -1,4 +1,4 @@
-# Langton-s-Ant-with-jQuery
+# Langtons-Ant-with-jQuery
 
 A demonstration of Langton's Ant using jQuery.
 
