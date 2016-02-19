@@ -10,6 +10,6 @@ My representation of Langton's Ant, built with jQuery, exists on a 100x100 grid.
 
 Learn more about [Langton's Ant](https://en.wikipedia.org/wiki/Langton%27s_ant).
 
-Updates:
+##Updates:
 
 2/19/16 Release 1.0
