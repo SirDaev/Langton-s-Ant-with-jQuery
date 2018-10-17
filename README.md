@@ -1,6 +1,6 @@
 # Langtons-Ant-with-jQuery
 
-A demonstration of Langton's Ant using jQuery.
+This is a demonstration of Langton's Ant using jQuery.
 
 ![](http://www.davejudd.com/images/github/langtons-ant/langtons-ant.png)
 
